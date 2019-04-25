@@ -11,7 +11,8 @@ deploy:
   image: 1000i100/rsync-ftp
   script:
     - mkdir /mnt/ftp
-    # $USER_PASSWORD_HOSTSSH_PRIVATE_KEY = ftp-user:ftp-pass@ftp-host.tld
-    - curlftpfs $USER_PASSWORD_HOSTSSH_PRIVATE_KEY /mnt/ftp/
+    # $FTP_USER_COLON_PASSWORD = ftp-user:ftp-pass
+    # $FTP_HOST = ftp-host.tld
+    - curlftpfs -o user=$FTP_USER_COLON_PASSWORD $FTP_HOST /mnt/ftp/
     - rsync -az ./public/ /mnt/ftp/
 ```
