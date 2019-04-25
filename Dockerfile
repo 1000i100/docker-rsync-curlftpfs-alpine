@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 
 MAINTAINER 1000i100 <git@1000i100.fr>
 
